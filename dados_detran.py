@@ -1,8 +1,16 @@
 import csv
 from collections import Counter
 from unidecode import unidecode
+import os
 tipos_veiculos = list()
-with open('dados-abertos-maio.csv') as csvfile:
+tipo_arquivo = list()
+pasta ='/home/lucas/PycharmProjects/dados-detran1/relatorios'
+lista_arquivos = os.listdir(pasta)
+arquivos = os.scandir(pasta)
+for t in arquivos:
+    print(t.name)
+print('==' * 50)
+with open('relatorios/arquivo(4).csv') as csvfile:
     arquivo = csv.reader(csvfile, delimiter=';')
     for linha in arquivo:
         tipo_veiculo = unidecode(linha[3].lower().strip())
